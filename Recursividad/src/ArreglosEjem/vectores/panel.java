@@ -263,6 +263,7 @@ public class panel {
                                         + obj2.secuencialM(Integer.parseInt(valor)));
                     }
                     break;
+                    
                     case "11":
                     valor = "";
                     do {

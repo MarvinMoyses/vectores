@@ -107,15 +107,16 @@ public class operacionesMatrices {
             }
         }
     }
-
+////////////////////////////////////////////////////////
     public int secuencialM (int valor){
-        for(int i =0 ; i<matriz.length; i++){
-            for (int j = 0; j < matriz.length; j++) {
-                if (valor==matriz[i][j]){
-                    return matriz[i][j];
-                      }
-            }
+      int arr[]= convertirAVector();
+      for(int i =0 ; i<arr.length; i++){
+        
+        if (valor==arr[i]){
+        return i;
+          }
         }
+        convertirMatriz(arr);
         return -1;
         }
 
@@ -209,8 +210,7 @@ public class operacionesMatrices {
     int arr[] = convertirAVector();
       int n = arr.length;
       int aux = n;
-      for (int i = 1; i < n; i++) {
-          aux = arr[i];
+      for (int i = 1; i < n; i++) {          aux = arr[i];
           for (int j = i - 1; j >= 0 && arr[j] > aux; j--) {
               arr[j + 1] = arr[j];
               arr[j] = aux;
@@ -255,33 +255,34 @@ public class operacionesMatrices {
       pivote = arr[(izq + der) / 2];
       do {
           while (arr[i] < pivote) {
-            convertirMatriz(arr);
+        
               i++;
               
           }
           while (arr[j] > pivote) {
-            convertirMatriz(arr);
+           
               j--;
           }
+          
           if (i <= j) {
               aux = arr[i];
               arr[i] = arr[j];
               arr[j] = aux;
               i++;
               j--;
-              convertirMatriz(arr);
+              
           }
-
+         
+          convertirMatriz(arr);
       } while (i <= j);
       if (izq < j) {
           ordenarQuicksort(izq, j);
-          convertirMatriz(arr);
       }
       if (i < der) {
-        convertirMatriz(arr);
           ordenarQuicksort(i, der);
       }
-      convertirMatriz(arr);
+       convertirMatriz(arr);
+      
   }
 
   public int busquedaBinaria(int valor) {
